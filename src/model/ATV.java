@@ -1,5 +1,5 @@
 package model;
 
-public class ATV extends AbstractVehicle {
+public class Atv extends AbstractVehicle {
     
 }
