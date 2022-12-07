@@ -88,7 +88,7 @@ public abstract class AbstractVehicle implements Vehicle {
     @Override
     public void reset() {
         // TODO Auto-generated method stub
-                    
+        //Vehicle v = new Vehicle();  
     }
 
     @Override
