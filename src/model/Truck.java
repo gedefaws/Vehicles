@@ -176,25 +176,6 @@ public class Truck extends AbstractVehicle {
         return "truck.gif";
     }
 
-    // @Override
-    // public Direction getDirection() {
-    // // TODO Auto-generated method stub
-    // System.out.println("the direction is" + theDir);
-    // return theDir;
-    // }
-
-    // @Override
-    // public int getX() {
-    // // TODO Auto-generated method stub
-    // return 0;
-    // }
-
-    // @Override
-    // public int getY() {
-    // // TODO Auto-generated method stub
-    // return 0;
-    // }
-
     @Override
     public boolean isAlive() {
         // TODO Auto-generated method stub
@@ -207,28 +188,15 @@ public class Truck extends AbstractVehicle {
 
     }
 
-    // @Override
-    // public void reset() {
-    // // TODO Auto-generated method stub
+    @Override
+    public void reset() {
+    // TODO Auto-generated method stub
 
-    // }
+    }
 
-    // @Override
-    // public void setDirection(Direction theDir) {
-    // // TODO Auto-generated method stub
+    public String toString(){
+        return "(" + theX + "," + theY + ")";
+    }
 
-    // }
-
-    // @Override
-    // public void setX(int theX) {
-    // // TODO Auto-generated method stub
-
-    // }
-
-    // @Override
-    // public void setY(int theY) {
-    // // TODO Auto-generated method stub
-
-    // }
 
 }

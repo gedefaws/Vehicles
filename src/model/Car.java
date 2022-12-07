@@ -86,24 +86,6 @@ public class Car extends AbstractVehicle {
         
     }
 
-    // @Override
-    // public Direction getDirection() {
-    //     // TODO Auto-generated method stub
-    //     return null;
-    // }
-
-    // @Override
-    // public int getX() {
-    //     // TODO Auto-generated method stub
-    //     return 0;
-    // }
-
-    // @Override
-    // public int getY() {
-    //     // TODO Auto-generated method stub
-    //     return 0;
-    // }
-
     @Override
     public boolean isAlive() {
         // TODO Auto-generated method stub
@@ -131,28 +113,13 @@ public class Car extends AbstractVehicle {
 
     }
 
-    // @Override
-    // public void reset() {
-    //     // TODO Auto-generated method stub
-    //     Vehicle v = new Car(theX, theY, theDir);
-    // }
+    @Override
+    public void reset() {
+        // TODO Auto-generated method stub
+        Vehicle v = new Car(theX, theY, theDir);
+    }
 
-    // @Override
-    // public void setDirection(Direction theDir) {
-    //     // TODO Auto-generated method stub
-
-    // }
-
-    // @Override
-    // public void setX(int theX) {
-    //     // TODO Auto-generated method stub
-
-    // }
-
-    // @Override
-    // public void setY(int theY) {
-    //     // TODO Auto-generated method stub
-
-    // }
-
+    public String toString(){
+        return "(" + theX + "," + theY + ")";
+    }
 }
