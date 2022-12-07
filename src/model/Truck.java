@@ -17,6 +17,9 @@ public class Truck extends AbstractVehicle {
     @Override
     public boolean canPass(Terrain theTerrain, Light theLight) {
         // TODO Auto-generated method stub
+        if(theTerrain == Terrain.CROSSWALK && theLight == Light.RED){
+            return false;
+        }       
         return true;
     }
 
