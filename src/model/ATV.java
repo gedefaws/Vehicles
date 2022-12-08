@@ -8,7 +8,8 @@ public class Atv extends AbstractVehicle{
     int theX;
     int theY;
     Direction theDir;
-    
+    Boolean dead = false;
+    int pokeCount = 0;
 
     public Atv(int theX, int theY, Direction theDir){
         super(theX, theY, theDir);
@@ -17,18 +18,76 @@ public class Atv extends AbstractVehicle{
     @Override
     public boolean canPass(Terrain theTerrain, Light theLight) {
         // TODO Auto-generated method stub
-        return false;
+        return true;
     }
 
     @Override
     public Direction chooseDirection(Map<Direction, Terrain> theNeighbors) {
         // TODO Auto-generated method stub
-        return null;
+        
+        if (theNeighbors.get(getDirection()) != Terrain.WALL && theNeighbors.get(getDirection().left()) == Terrain.WALL){
+            Boolean bool = true;
+            while (bool == true) {
+                Direction newDir = Direction.random();
+                if (newDir == getDirection() || newDir == getDirection().right()) {
+                    bool = false;
+                    System.out.println("ATV " + 0);
+                    return newDir;
+                }
+            }
+        }
+        else if (theNeighbors.get(getDirection()) != Terrain.WALL && theNeighbors.get(getDirection().right()) == Terrain.WALL){
+            Boolean bool = true;
+            while (bool == true) {
+                Direction newDir = Direction.random();
+                if (newDir == getDirection().left() || newDir == getDirection()) {
+                    bool = false;
+                    System.out.println("ATV " + 1);
+                    return newDir;
+                }
+            }
+        }
+        else if (theNeighbors.get(getDirection()) == Terrain.WALL && theNeighbors.get(getDirection().left()) != Terrain.WALL 
+            && theNeighbors.get(getDirection().right()) != Terrain.WALL){
+            Boolean bool = true;
+            while (bool == true) {
+                Direction newDir = Direction.random();
+                if (newDir == getDirection().left() || newDir == getDirection().right()) {
+                    bool = false;
+                    System.out.println("ATV " + 2);
+                    return newDir;
+                }
+            }
+        }
+        else if (theNeighbors.get(getDirection()) == Terrain.WALL && theNeighbors.get(getDirection().right()) == Terrain.WALL){
+            System.out.println("ATV " + 3);
+            return getDirection().left();
+        }
+        else if (theNeighbors.get(getDirection()) == Terrain.WALL && theNeighbors.get(getDirection().left()) == Terrain.WALL){
+            System.out.println("ATV " + 4);
+            return getDirection().right();
+        }
+        else {
+            Boolean bool = true;
+            while (bool == true) {
+                Direction newDir = Direction.random();
+                if (newDir != getDirection().reverse()){
+                    bool = false;
+                    System.out.println("ATV " + 5);
+                    return newDir;
+                }
+            }
+        }
+        System.out.println("ATV " + 6);
+        return getDirection();
     }
 
     @Override
     public void collide(Vehicle theOther) {
         // TODO Auto-generated method stub
+        if(theOther.isAlive() && theOther.getDeathTime() < getDeathTime()){
+            dead = true;
+        }
         
     }
 
@@ -41,36 +100,38 @@ public class Atv extends AbstractVehicle{
     @Override
     public String getImageFileName() {
         // TODO Auto-generated method stub
-        return "atv.gif";
+        if (isAlive()){
+            return "atv.gif";
+        }
+        else { 
+            return "atv_dead.gif";
+        }
     }
 
-    @Override
-    public Direction getDirection() {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    @Override
-    public int getX() {
-        // TODO Auto-generated method stub
-        return 0;
-    }
-
-    @Override
-    public int getY() {
-        // TODO Auto-generated method stub
-        return 0;
-    }
 
     @Override
     public boolean isAlive() {
         // TODO Auto-generated method stub
-        return false;
+        if (pokeCount < getDeathTime() && dead){
+            System.out.println("now dead");
+            return false;
+        }
+        else if (dead && pokeCount == getDeathTime()){
+            dead = false;
+            pokeCount = 0;
+            System.out.println("now awake");
+            setDirection(Direction.random());
+            return true;
+        } 
+        else {
+            return true;
+        }           
     }
 
     @Override
     public void poke() {
         // TODO Auto-generated method stub
+        pokeCount++;
         
     }
 
@@ -79,25 +140,8 @@ public class Atv extends AbstractVehicle{
         // TODO Auto-generated method stub
         
     }
-
-    @Override
-    public void setDirection(Direction theDir) {
-        // TODO Auto-generated method stub
-        
-    }
-
-    @Override
-    public void setX(int theX) {
-        this.theX = theX;
-        // TODO Auto-generated method stub
-        
-    }
-
-    @Override
-    public void setY(int theY) {
-        // TODO Auto-generated method stub
-        this.theY = theY;
-        
+    public String toString(){
+        return "(" + theX + "," + theY + ")";
     }
     
 }
