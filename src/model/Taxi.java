@@ -59,7 +59,8 @@ public class Taxi extends AbstractVehicle {
             else {
                 return getDirection().reverse();
             }
-        }else {
+        }
+        else {
             return getDirection().reverse();
         }
     }
