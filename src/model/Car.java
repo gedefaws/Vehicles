@@ -8,7 +8,7 @@ public class Car extends AbstractVehicle {
     int theX;
     int theY;
     Direction theDir;
-    int count = 0;
+    int pokeCount = 0;
     boolean dead = false;
 
     public Car(int theX, int theY, Direction theDir) {
@@ -89,13 +89,13 @@ public class Car extends AbstractVehicle {
     @Override
     public boolean isAlive() {
         // TODO Auto-generated method stub
-        if (count < 15 && dead){
+        if (pokeCount < 15 && dead){
             System.out.println("now dead");
             return false;
         }
-        else if (dead && count == 15){
+        else if (dead && pokeCount == 15){
             dead = false;
-            count = 0;
+            pokeCount = 0;
             System.out.println("now awake");
             setDirection(Direction.random());
             return true;
@@ -108,8 +108,8 @@ public class Car extends AbstractVehicle {
     @Override
     public void poke() {
         // TODO Auto-generated method stub
-        count++;
-        System.out.println("count is " + count);
+        pokeCount++;
+        System.out.println("pokeCount is " + pokeCount);
 
     }
 
