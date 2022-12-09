@@ -17,14 +17,11 @@ public class Atv extends AbstractVehicle{
 
     @Override
     public boolean canPass(Terrain theTerrain, Light theLight) {
-        // TODO Auto-generated method stub
         return true;
     }
 
     @Override
-    public Direction chooseDirection(Map<Direction, Terrain> theNeighbors) {
-        // TODO Auto-generated method stub
-        
+    public Direction chooseDirection(Map<Direction, Terrain> theNeighbors) {        
         if (theNeighbors.get(getDirection()) != Terrain.WALL && theNeighbors.get(getDirection().left()) == Terrain.WALL){
             Boolean bool = true;
             while (bool == true) {
@@ -84,7 +81,6 @@ public class Atv extends AbstractVehicle{
 
     @Override
     public void collide(Vehicle theOther) {
-        // TODO Auto-generated method stub
         if(theOther.isAlive() && theOther.getDeathTime() < getDeathTime()){
             dead = true;
         }
@@ -93,13 +89,11 @@ public class Atv extends AbstractVehicle{
 
     @Override
     public int getDeathTime() {
-        // TODO Auto-generated method stub
         return 25;
     }
 
     @Override
     public String getImageFileName() {
-        // TODO Auto-generated method stub
         if (isAlive()){
             return "atv.gif";
         }
@@ -108,18 +102,14 @@ public class Atv extends AbstractVehicle{
         }
     }
 
-
     @Override
     public boolean isAlive() {
-        // TODO Auto-generated method stub
         if (pokeCount < getDeathTime() && dead){
-            System.out.println("now dead");
             return false;
         }
         else if (dead && pokeCount == getDeathTime()){
             dead = false;
             pokeCount = 0;
-            System.out.println("now awake");
             setDirection(Direction.random());
             return true;
         } 
@@ -130,7 +120,6 @@ public class Atv extends AbstractVehicle{
 
     @Override
     public void poke() {
-        // TODO Auto-generated method stub
         pokeCount++;
         
     }
@@ -140,6 +129,8 @@ public class Atv extends AbstractVehicle{
         // TODO Auto-generated method stub
         
     }
+
+    @Override
     public String toString(){
         return "(" + theX + "," + theY + ")";
     }
