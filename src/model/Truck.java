@@ -16,10 +16,9 @@ public class Truck extends AbstractVehicle {
 
     @Override
     public boolean canPass(Terrain theTerrain, Light theLight) {
-        // TODO Auto-generated method stub
-        if(theTerrain == Terrain.CROSSWALK && theLight == Light.RED){
+        if (theTerrain == Terrain.CROSSWALK && theLight == Light.RED) {
             return false;
-        }       
+        }
         return true;
     }
 
@@ -34,7 +33,6 @@ public class Truck extends AbstractVehicle {
             && (theNeighbors.get(getDirection().left()) == Terrain.GRASS
                 || theNeighbors.get(getDirection().left()) == Terrain.TRAIL
                 || theNeighbors.get(getDirection().left()) == Terrain.WALL)) {
-            System.out.println(1);
             return getDirection();
         }
         else if ((theNeighbors.get(getDirection()) == Terrain.STREET
@@ -52,8 +50,6 @@ public class Truck extends AbstractVehicle {
                 if (newDir == getDirection() || newDir == getDirection().right()
                     || newDir == getDirection().left()) {
                     bool = false;
-                    System.out.println(5);
-
                     return newDir;
                 }
             }
@@ -72,8 +68,6 @@ public class Truck extends AbstractVehicle {
                 Direction newDir = Direction.random();
                 if (newDir == getDirection() || newDir == getDirection().right()) {
                     bool = false;
-                    System.out.println(2);
-                    System.out.println(newDir);
                     return newDir;
                 }
             }
@@ -81,9 +75,9 @@ public class Truck extends AbstractVehicle {
         else if ((theNeighbors.get(getDirection()) == Terrain.STREET
                   || theNeighbors.get(getDirection()) == Terrain.CROSSWALK
                   || theNeighbors.get(getDirection()) == Terrain.LIGHT)
-                && (theNeighbors.get(getDirection().right()) == Terrain.GRASS
-                  || theNeighbors.get(getDirection().right()) == Terrain.TRAIL
-                  || theNeighbors.get(getDirection().right()) == Terrain.WALL)
+                 && (theNeighbors.get(getDirection().right()) == Terrain.GRASS
+                     || theNeighbors.get(getDirection().right()) == Terrain.TRAIL
+                     || theNeighbors.get(getDirection().right()) == Terrain.WALL)
                  && (theNeighbors.get(getDirection().left()) == Terrain.STREET
                      || theNeighbors.get(getDirection().left()) == Terrain.CROSSWALK
                      || theNeighbors.get(getDirection().left()) == Terrain.LIGHT)) {
@@ -92,7 +86,6 @@ public class Truck extends AbstractVehicle {
                 Direction newDir = Direction.random();
                 if (newDir == getDirection() || newDir == getDirection().left()) {
                     bool = false;
-                    System.out.println(3);
                     return newDir;
                 }
             }
@@ -111,14 +104,9 @@ public class Truck extends AbstractVehicle {
                 Direction newDir = Direction.random();
                 if (newDir == getDirection().right() || newDir == getDirection().left()) {
                     bool = false;
-                    System.out.println(4);
-                    System.out.println(getDirection());
-                    System.out.println(newDir);
-
                     return newDir;
                 }
             }
-
         }
         else if ((theNeighbors.get(getDirection()) == Terrain.GRASS
                   || theNeighbors.get(getDirection()) == Terrain.TRAIL
@@ -129,10 +117,8 @@ public class Truck extends AbstractVehicle {
                  && (theNeighbors.get(getDirection().left()) == Terrain.GRASS
                      || theNeighbors.get(getDirection().left()) == Terrain.TRAIL
                      || theNeighbors.get(getDirection().left()) == Terrain.WALL)) {
-            System.out.println(7);
 
             return getDirection().right();
-
         }
         else if ((theNeighbors.get(getDirection()) == Terrain.GRASS
                   || theNeighbors.get(getDirection()) == Terrain.TRAIL
@@ -144,59 +130,49 @@ public class Truck extends AbstractVehicle {
                      || theNeighbors.get(getDirection().left()) == Terrain.CROSSWALK
                      || theNeighbors.get(getDirection().left()) == Terrain.LIGHT)) {
 
-            System.out.println(8);
             return getDirection().left();
 
         }
-
-        // else {
-        // System.out.println(6);
-        // return getDirection().reverse();
-        // }
-        System.out.println(6);
         return getDirection().reverse();
 
     }
 
     @Override
-    public void collide(Vehicle theOther) {
-        // TODO Auto-generated method stub
-
-    }
-
-    @Override
     public int getDeathTime() {
-        // TODO Auto-generated method stub
         return 0;
     }
 
     @Override
     public String getImageFileName() {
-        // TODO Auto-generated method stub
         return "truck.gif";
     }
 
     @Override
     public boolean isAlive() {
-        // TODO Auto-generated method stub
         return true;
     }
 
     @Override
-    public void poke() {
+    public void reset() {
         // TODO Auto-generated method stub
 
     }
 
     @Override
-    public void reset() {
-    // TODO Auto-generated method stub
-
-    }
-
-    public String toString(){
+    public String toString() {
         return "(" + theX + "," + theY + ")";
     }
 
+    @Override
+    public void collide(Vehicle theOther) {
+        // Not necessary for truck since truck never dies
+        
+    }
+
+    @Override
+    public void poke() {
+        // Not necessary for truck since truck never dies
+        
+    }
 
 }

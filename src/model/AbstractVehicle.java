@@ -9,39 +9,11 @@ public abstract class AbstractVehicle implements Vehicle {
     int theX;
     int theY;
     Direction theDir;
+
     public AbstractVehicle(int theX, int theY, Direction theDir){
         this.theX = theX;
         this.theY = theY;
         this.theDir = theDir;
-    }
-    @Override
-    public boolean canPass(Terrain theTerrain, Light theLight) {
-        // TODO Auto-generated method stub
-        return false;
-    }
-
-    @Override
-    public Direction chooseDirection(Map<Direction, Terrain> theNeighbors) {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    @Override
-    public void collide(Vehicle theOther) {
-        // TODO Auto-generated method stub
-      
-    }
-
-    @Override
-    public int getDeathTime() {
-        // TODO Auto-generated method stub
-        return 0;
-    }
-
-    @Override
-    public String getImageFileName() {
-        // TODO Auto-generated method stub
-        return null;
     }
 
     @Override
@@ -63,50 +35,32 @@ public abstract class AbstractVehicle implements Vehicle {
 
     @Override
     public int getX() {
-        // TODO Auto-generated method stub
         return theX;
     }
 
     @Override
     public int getY() {
-        // TODO Auto-generated method stub
         return theY;
-    }
-
-    @Override
-    public boolean isAlive() {
-        // TODO Auto-generated method stub
-        return false;
-    }
-
-    @Override
-    public void poke() {
-        // TODO Auto-generated method stub
-        
     }
 
     @Override
     public void reset() {
         // TODO Auto-generated method stub
-        //Vehicle v = new Vehicle();  
     }
 
     @Override
     public void setDirection(Direction theDir) {
-        // TODO Auto-generated method stub
         this.theDir = theDir;
     }
 
     @Override
     public void setX(int theX) {
-        // TODO Auto-generated method stub
         this.theX = theX;
         
     }
 
     @Override
     public void setY(int theY) {
-        // TODO Auto-generated method stub
         this.theY = theY;
         
     }

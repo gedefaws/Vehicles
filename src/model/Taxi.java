@@ -17,9 +17,7 @@ public class Taxi extends AbstractVehicle {
     }
 
     @Override
-    public boolean canPass(Terrain theTerrain, Light theLight) {
-        // TODO Auto-generated method stub
-        
+    public boolean canPass(Terrain theTerrain, Light theLight) {        
         if (theTerrain == Terrain.CROSSWALK && theLight == Light.RED && redLightTimeCount < 3){
             redLightTimeCount++;
             return false;
@@ -36,7 +34,6 @@ public class Taxi extends AbstractVehicle {
 
     @Override
     public Direction chooseDirection(Map<Direction, Terrain> theNeighbors) {
-        // TODO Auto-generated method stub
         if (theNeighbors.get(getDirection()) == Terrain.STREET
             || theNeighbors.get(getDirection()) == Terrain.CROSSWALK
             || theNeighbors.get(getDirection()) == Terrain.LIGHT){
@@ -67,22 +64,18 @@ public class Taxi extends AbstractVehicle {
 
     @Override
     public void collide(Vehicle theOther) {
-        // TODO Auto-generated method stub
         if(theOther.isAlive() && theOther.getDeathTime() < getDeathTime()){
             dead = true;
-        }
-        
+        }       
     }
 
     @Override
     public int getDeathTime() {
-        // TODO Auto-generated method stub
         return 15;
     }
 
     @Override
     public String getImageFileName() {
-        // TODO Auto-generated method stub
         if (isAlive()){
             return "taxi.gif";
         }
@@ -93,15 +86,12 @@ public class Taxi extends AbstractVehicle {
 
     @Override
     public boolean isAlive() {
-        // TODO Auto-generated method stub
-        if (pokeCount < 15 && dead){
-            System.out.println("now dead");
+        if (pokeCount < getDeathTime() && dead){
             return false;
         }
-        else if (dead && pokeCount == 15){
+        else if (dead && pokeCount == getDeathTime()){
             dead = false;
             pokeCount = 0;
-            System.out.println("now awake");
             setDirection(Direction.random());
             return true;
         } 
@@ -112,10 +102,7 @@ public class Taxi extends AbstractVehicle {
 
     @Override
     public void poke() {
-        // TODO Auto-generated method stub
         pokeCount++;
-        System.out.println("count is " + pokeCount);
-
     }
 
     @Override
@@ -124,8 +111,9 @@ public class Taxi extends AbstractVehicle {
         
     }
     
+    @Override
     public String toString(){
         return "(" + theX + "," + theY + ")";
     }
-    
+
 }
