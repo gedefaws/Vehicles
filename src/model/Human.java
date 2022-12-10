@@ -17,7 +17,6 @@ public class Human extends AbstractVehicle {
 
     @Override
     public boolean canPass(Terrain theTerrain, Light theLight) {
-        // TODO Auto-generated method stub
         if (theTerrain == Terrain.CROSSWALK && theLight == Light.GREEN) {
             return false;
         }
@@ -28,7 +27,6 @@ public class Human extends AbstractVehicle {
 
     @Override
     public Direction chooseDirection(Map<Direction, Terrain> theNeighbors) {
-        // TODO Auto-generated method stub
         if (theNeighbors.get(getDirection()) == Terrain.CROSSWALK) {
             System.out.println(1);
             return getDirection();
@@ -60,7 +58,6 @@ public class Human extends AbstractVehicle {
                 && theNeighbors.get(getDirection().left()) != Terrain.CROSSWALK)
                 && (theNeighbors.get(getDirection().right()) != Terrain.GRASS
                 && theNeighbors.get(getDirection().right()) != Terrain.CROSSWALK)) {
-            System.out.println(9);
             return getDirection();
         }
         else if ((theNeighbors.get(getDirection()) == Terrain.GRASS
@@ -72,7 +69,6 @@ public class Human extends AbstractVehicle {
                 Direction newDir = Direction.random();
                 if (newDir == getDirection() || newDir == getDirection().left()) {
                     bool = false;
-                    System.out.println(5);
                     return newDir;
                 }
             }
@@ -86,7 +82,6 @@ public class Human extends AbstractVehicle {
                 Direction newDir = Direction.random();
                 if (newDir == getDirection() || newDir == getDirection().right()) {
                     bool = false;
-                    System.out.println(6);
                     return newDir;
                 }
             }
@@ -99,7 +94,6 @@ public class Human extends AbstractVehicle {
                 Direction newDir = Direction.random();
                 if (newDir == getDirection().left() || newDir == getDirection().right()) {
                     bool = false;
-                    System.out.println(10);
                     return newDir;
                 }
             }
@@ -124,28 +118,28 @@ public class Human extends AbstractVehicle {
 
     @Override
     public void collide(Vehicle theOther) {
-        // TODO Auto-generated method stub
         if (theOther.isAlive() && theOther.getDeathTime() < getDeathTime()) {
             dead = true;
         }
-
     }
 
     @Override
     public int getDeathTime() {
-        // TODO Auto-generated method stub
         return 45;
     }
 
     @Override
     public String getImageFileName() {
-        // TODO Auto-generated method stub
-        return "human.gif";
+        if (isAlive()){
+            return "human.gif";
+        }
+        else {
+            return "human_dead.gif";
+        }
     }
 
     @Override
     public boolean isAlive() {
-        // TODO Auto-generated method stub
         if (dead == true && pokeCount < getDeathTime()) {
             return false;
         }
@@ -162,14 +156,17 @@ public class Human extends AbstractVehicle {
 
     @Override
     public void poke() {
-        // TODO Auto-generated method stub
         pokeCount++;
-
     }
 
     @Override
     public void reset() {
         // TODO Auto-generated method stub
 
+    }
+    
+    @Override
+    public String toString(){
+        return "(" + theX + "," + theY + ")";
     }
 }
