@@ -28,7 +28,6 @@ public class Atv extends AbstractVehicle{
                 Direction newDir = Direction.random();
                 if (newDir == getDirection() || newDir == getDirection().right()) {
                     bool = false;
-                    System.out.println("ATV " + 0);
                     return newDir;
                 }
             }
@@ -39,7 +38,6 @@ public class Atv extends AbstractVehicle{
                 Direction newDir = Direction.random();
                 if (newDir == getDirection().left() || newDir == getDirection()) {
                     bool = false;
-                    System.out.println("ATV " + 1);
                     return newDir;
                 }
             }
@@ -51,17 +49,14 @@ public class Atv extends AbstractVehicle{
                 Direction newDir = Direction.random();
                 if (newDir == getDirection().left() || newDir == getDirection().right()) {
                     bool = false;
-                    System.out.println("ATV " + 2);
                     return newDir;
                 }
             }
         }
         else if (theNeighbors.get(getDirection()) == Terrain.WALL && theNeighbors.get(getDirection().right()) == Terrain.WALL){
-            System.out.println("ATV " + 3);
             return getDirection().left();
         }
         else if (theNeighbors.get(getDirection()) == Terrain.WALL && theNeighbors.get(getDirection().left()) == Terrain.WALL){
-            System.out.println("ATV " + 4);
             return getDirection().right();
         }
         else {
@@ -70,7 +65,6 @@ public class Atv extends AbstractVehicle{
                 Direction newDir = Direction.random();
                 if (newDir != getDirection().reverse()){
                     bool = false;
-                    System.out.println("ATV " + 5);
                     return newDir;
                 }
             }
