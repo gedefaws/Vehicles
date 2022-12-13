@@ -4,11 +4,11 @@ import java.util.Map;
 
 public class Human extends AbstractVehicle {
 
-    int theX;
-    int theY;
-    Direction theDir;
-    int pokeCount = 0;
-    Boolean dead = false;
+    private int theX;
+    private int theY;
+    private Direction theDir;
+    private int pokeCount = 0;
+    private Boolean dead = false;
 
     public Human(int theX, int theY, Direction theDir) {
         super(theX, theY, theDir);
@@ -164,7 +164,7 @@ public class Human extends AbstractVehicle {
         // TODO Auto-generated method stub
 
     }
-    
+
     @Override
     public String toString(){
         return "(" + theX + "," + theY + ")";

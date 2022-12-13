@@ -4,12 +4,12 @@ import java.util.Map;
 
 public class Taxi extends AbstractVehicle {
 
-    int theX;
-    int theY;
-    Direction theDir;
-    int pokeCount = 0;
-    Boolean dead = false;
-    int redLightTimeCount = 0;
+    private int theX;
+    private int theY;
+    private Direction theDir;
+    private int pokeCount = 0;
+    private Boolean dead = false;
+    private int redLightTimeCount = 0;
 
     public Taxi(int theX, int theY, Direction theDir){
         super(theX, theY, theDir);

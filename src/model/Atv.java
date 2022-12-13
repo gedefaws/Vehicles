@@ -5,11 +5,11 @@ import java.util.Map;
 import io.FileLoader;
 
 public class Atv extends AbstractVehicle{
-    int theX;
-    int theY;
-    Direction theDir;
-    Boolean dead = false;
-    int pokeCount = 0;
+    private int theX;
+    private int theY;
+    private Direction theDir;
+    private Boolean dead = false;
+    private int pokeCount = 0;
 
     public Atv(int theX, int theY, Direction theDir){
         super(theX, theY, theDir);

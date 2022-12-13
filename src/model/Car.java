@@ -5,11 +5,11 @@ import java.util.Map;
 
 public class Car extends AbstractVehicle {
 
-    int theX;
-    int theY;
-    Direction theDir;
-    int pokeCount = 0;
-    boolean dead = false;
+    private int theX;
+    private int theY;
+    private Direction theDir;
+    private int pokeCount = 0;
+    private boolean dead = false;
 
     public Car(int theX, int theY, Direction theDir) {
         super(theX, theY, theDir);

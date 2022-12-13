@@ -5,9 +5,9 @@ import java.util.Map;
 
 public class Truck extends AbstractVehicle {
 
-    int theX;
-    int theY;
-    Direction theDir;
+    private int theX;
+    private int theY;
+    private Direction theDir;
 
     public Truck(int theX, int theY, Direction theDir) {
         super(theX, theY, theDir);

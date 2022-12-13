@@ -4,9 +4,9 @@ import java.util.Map;
 
 public class Bicycle extends AbstractVehicle {
 
-    int theX;
-    int theY;
-    Direction theDir;
+    private int theX;
+    private int theY;
+    private Direction theDir;
     private int pokeCount = 0;
     private boolean dead;
 
