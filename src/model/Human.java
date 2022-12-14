@@ -4,14 +4,13 @@ import java.util.Map;
 
 public class Human extends AbstractVehicle {
 
-    private int theX;
-    private int theY;
-    private Direction theDir;
-    private int pokeCount = 0;
-    private Boolean dead = false;
+    private int pokeCount;
+    private Boolean dead;
 
     public Human(int theX, int theY, Direction theDir) {
         super(theX, theY, theDir);
+        pokeCount = 0;
+        dead = false;
 
     }
 
@@ -167,6 +166,6 @@ public class Human extends AbstractVehicle {
 
     @Override
     public String toString(){
-        return "(" + theX + "," + theY + ")";
+        return "(" + getX() + "," + getY()+ ")";
     }
 }

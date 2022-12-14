@@ -4,14 +4,13 @@ import java.util.Map;
 
 public class Bicycle extends AbstractVehicle {
 
-    private int theX;
-    private int theY;
-    private Direction theDir;
-    private int pokeCount = 0;
+    private int pokeCount;
     private boolean dead;
 
     public Bicycle(int theX, int theY, Direction theDir){
         super(theX, theY, theDir);
+        pokeCount = 0;
+        dead = false;
     }
 
     @Override
@@ -118,6 +117,6 @@ public class Bicycle extends AbstractVehicle {
 
     @Override
     public String toString(){
-        return "(" + theX + "," + theY + ")";
+        return "(" + getX() + "," + getY()+ ")";
     }
 }
