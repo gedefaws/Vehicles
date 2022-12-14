@@ -6,9 +6,9 @@ import view.RoadRageGUI;
 import view.RoadRageMain;
 
 public abstract class AbstractVehicle implements Vehicle {
-    protected int theX;
-    protected int theY;
-    protected Direction theDir;
+    private int theX;
+    private int theY;
+    private Direction theDir;
 
     public AbstractVehicle(int theX, int theY, Direction theDir){
         this.theX = theX;

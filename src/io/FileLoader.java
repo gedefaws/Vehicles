@@ -35,7 +35,7 @@ public final class FileLoader {
     /**
      * The filename of the city map.
      */
-    private static final String CITY_FILE = "city_map2.txt";
+    private static final String CITY_FILE = "city_map1.txt";
     
     /**
      * A private constructor, to prevent external instantiation.

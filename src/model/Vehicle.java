@@ -25,7 +25,7 @@ public interface Vehicle {
      * @return whether or not this object may move onto the given type of
      *         terrain when the street lights are the given color.
      */
-    boolean canPass(Terrain theTerrain, Light theLight);
+   boolean canPass(Terrain theTerrain, Light theLight);
 
     /**
      * Returns the direction this object would like to move, based on the given
