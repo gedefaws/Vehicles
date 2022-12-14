@@ -5,10 +5,6 @@ import java.util.Map;
 
 public class Truck extends AbstractVehicle {
 
-    private int theX;
-    private int theY;
-    private Direction theDir;
-
     public Truck(int theX, int theY, Direction theDir) {
         super(theX, theY, theDir);
 
@@ -160,7 +156,7 @@ public class Truck extends AbstractVehicle {
 
     @Override
     public String toString() {
-        return "(" + theX + "," + theY + ")";
+        return "(" + getX() + "," + getY() + ")";
     }
 
     @Override

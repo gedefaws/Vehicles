@@ -4,13 +4,11 @@ import java.util.Map;
 
 public class Taxi extends Car {
 
-    private int theX;
-    private int theY;
-    private Direction theDir;
-    private int redLightTimeCount = 0;
+    private int redLightTimeCount;
 
     public Taxi(int theX, int theY, Direction theDir){
         super(theX, theY, theDir);
+        redLightTimeCount = 0;
 
     }
 
@@ -48,7 +46,7 @@ public class Taxi extends Car {
     
     @Override
     public String toString(){
-        return "(" + theX + "," + theY + ")";
+        return "(" + getX() + "," + getY() + ")";
     }
 
 }
